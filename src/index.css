@@ -92,6 +92,7 @@ body {
   display: grid;
   place-content: center;
   border-radius: 10px 0 0 10px;
+  overflow: hidden;
 }
 .all-todos li:hover span {
   width: 36px;
