@@ -24,10 +24,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .app {
-  max-width: 500px;
+  width: 380px;
   max-height: 80vh;
   background: white;
   padding: 30px;
@@ -44,7 +44,7 @@ body {
 }
 .input {
   outline: none;
-  width: max-content;
+  width: 100%;
   padding: 6px 10px;
   height: 40px;
   font-size: 1rem;
@@ -69,21 +69,36 @@ body {
   margin-top: 12px;
   background-color: rgb(236, 236, 236);
   overflow: hidden;
+  position: relative;
+  
 }
 .all-todos li .item {
   padding: 6px 12px;
+  word-wrap: break-word;
+  word-break: break-all;
  
 }
 .all-todos li span {
+  position: absolute;
+  right: 0;
   font-size: 1.3rem;
   width: 0px;
-  height: 36px;
+  height: 100%;
   line-height: 40px;
   text-align: center;
   color: #fff;
   background-color: #960000;
   transition: all 0.15s linear;
+  display: grid;
+  place-content: center;
+  border-radius: 10px 0 0 10px;
 }
 .all-todos li:hover span {
   width: 36px;
+}
+
+@media (max-width: 400px) {
+  .app {
+    width: 340px;
+  }
 }
