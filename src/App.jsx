@@ -12,7 +12,6 @@ function App() {
   const [allTodos, setAllTodos] = useState(saved);
   
   useEffect(() => {
-    console.log(allTodos)
     localStorage.setItem("saved", JSON.stringify(allTodos));
   },[allTodos])
   
@@ -54,9 +53,10 @@ function App() {
               <div className="item">{item}</div>
               <span
                 onClick={() => {
-                  setAllTodos(
-                    allTodos.filter((element) => element !== allTodos[index])
-                    );
+                  const indexToRemove = allTodos.findIndex((todo, i) => todo === item && i === index);
+                  const updatedTodos = [...allTodos];
+                  updatedTodos.splice(indexToRemove, 1);
+                  setAllTodos(updatedTodos);
                 }}
               >
                 <AiFillDelete />
